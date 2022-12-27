@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        //array reduce
+        let array = [10, 20, 30, 40];
+        let output = array.reduce(reducefn);
+        console.log(output);
+
+        function reducefn(total, input) {
+            return total + input;
+        }
+
+        //promise
+        let p = new Promise((resolve, reject) => {
+            let user = 1;
+            if (user === 1) {
+                resolve("success");
+            }
+            else {
+                reject("failed");
+            }
+        });
+        p.then((message) => {
+            console.log(message);
+        }).catch((message) => {
+            console.log(message);
+        });
+
+        //async and await
+        function makeRequest(request) {
+            return new Promise((resolve, reject) => {
+                if (request === 'checkPromise') {
+                    resolve("Promise Success");
+                }
+                else {
+                    reject("Promise Failed");
+                }
+            });
+        }
+        async function TestAsyncAwait() {
+            try{
+            await makeRequest("checkPromises").then((message)=>{
+                console.log(message);
+            });
+            console.log("testing async & await");}
+            catch(err){
+                console.log("Failed tttt");
+            }
+        }
+        TestAsyncAwait();
+
+    </script>
+</head>
+
+<body>
+    <h1>Test Site</h1>
+</body>
+
+</html>
